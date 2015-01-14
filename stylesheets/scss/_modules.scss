@@ -1,0 +1,243 @@
+#sortable-quiz {
+  ul {
+    list-style-type:none;
+    padding:0;
+    margin-bottom:0;
+    @extend %clearfix;
+    li {
+      float: left;
+      cursor: pointer;
+      margin:0 0.4em;
+    } 
+  } //end ul
+}//end #sortable-quiz
+
+//buttons
+button.btn-submit-answers, button.btn-start, button.btn-correct {
+  border-radius:0;
+  width:125px;
+  font-size:1em;
+}
+
+.btn-submit-answers {
+  background-color:$brand;
+}
+
+.btn-correct {
+  background-color:$wrong;
+}
+
+.btn-submit-answers, .btn-correct {
+  border:0;
+  transition: background-color 0.3s ease;
+  &:hover {
+     background-color:$secondary;
+  }
+}
+
+.btn-correct {
+  display:none;
+}
+
+.btn-submit-answers {
+  display:block;
+}
+
+.btn-start {
+  border:0;
+  background-color:$brand;
+  transition: background-color 0.3s ease;
+  &:hover {
+     background-color:$secondary;
+  }
+}
+
+.instructions {
+  margin-bottom:20px;
+  @include font (1em, 400, 1, $brand);
+  text-align:center;
+}
+
+#timer-block {
+  padding: 0 2px;
+  width:100%;
+  background-color:$secondary;
+  color:$moduleText;
+  div {
+    margin:$center;
+    width:65%;
+    @extend %clearfix;
+    p {
+      display:inline-block;
+      float:left;
+      margin:18px 0;
+      @include font (1em, 400, 1, #fff);
+    }
+    #countdown {
+      float:right;
+      width:120px;
+      font-size:2.5em;
+      .numeral {
+        margin:0 4px;
+        padding:0 2px 0 5px;
+        @include font (1em, 600, 1, $secondary);
+        background-color:#fff;
+        letter-spacing:3px;
+      }
+    }
+  }
+  @extend %clearfix;
+}
+
+.answer_block {
+  position:relative;
+  width:23.5%;
+  max-width:191px;
+  @include font (1em, 400, 1.2, $moduleText);
+  text-align:center;
+  transition: background-color 0.5s ease;
+  &:hover {
+    background-color:$secondary;
+    } 
+  } 
+
+.one-line {
+  padding:20px 2px;
+}
+.two-lines {
+  padding:12px 2px;
+}
+.three-lines {
+  padding:4px 2px;
+}
+
+.default {
+ background-color:$brand;
+}
+
+.match {
+  background-color:$brand;
+  &:after {
+    content:"\e013";
+    font-family:"Glyphicons Halflings";
+    line-height:1;
+    margin:10px;
+    display:inline-block;
+    position:absolute;
+    bottom:-6px;
+    right:-6px;
+  }
+}
+
+.wrong {
+ background-color:$wrong;
+  &:after {
+    content:"\e014";
+    font-family:"Glyphicons Halflings";
+    line-height:1;
+    margin:10px;
+    display:inline-block;
+    position:absolute;
+    bottom:-7px;
+    right:-7px;
+  }
+}
+
+@media screen and (max-width:1200px) {
+  #sortable-quiz {
+      ul {
+        li {
+          margin:0 0.5em;
+        } //end li
+      } //end ul
+  }//end #sortable-quiz
+  .answer_block {
+     width:23%;
+  }
+}
+
+@media screen and (max-width:750px) {
+  .answer_block {
+     font-size:0.9em;
+     width:23%;
+  }
+  .three-lines {
+  padding:5px 2px;
+}
+}
+
+@media screen and (max-width:700px) {
+  #sortable-quiz {
+      ul {
+        li {
+          margin-right:0.4em;
+        } //end li
+      } //end ul
+  }//end #sortable-quiz
+  #timer-block {
+    div {
+      width:80%;
+    }
+  }
+}
+
+
+@media screen and (max-width:600px) {
+  .answer_block {
+     font-size:0.8em;
+  }
+  .two-lines {
+    padding:13px 2px;
+  }
+  .three-lines {
+    padding:7px 2px;
+  }
+}
+
+@media screen and (max-width:555px) {
+  #sortable-quiz {
+      ul {
+        left:0;
+        width: 200px;
+        margin:$center;
+        li {
+          float: none;
+          display:block;
+          margin-right:0;
+          margin-bottom:10px;
+          width: 200px;
+        } //end li
+      } //end ul
+  }//end #sortable-quiz
+
+  #timer-block {
+    padding:8px 0px;
+    width:100%;
+    div {
+      margin:$center;
+      width:100%;
+      p {
+        display:block;
+        float:none;
+        margin:$center;
+        padding-bottom:8px;
+        text-align:center;
+        font-size:0.8571em;
+      }
+      #countdown {
+      float:none;
+      font-size:2em;
+    }
+    }
+  }
+  .answer_block, button.btn-submit-answers, button.btn-start, button.btn-correct, .instructions  {
+    font-size:0.8571em;
+  }
+  .two-lines {
+    padding:11px 3px;
+  }
+  .three-lines {
+    padding:11px 0;
+  }
+
+}
